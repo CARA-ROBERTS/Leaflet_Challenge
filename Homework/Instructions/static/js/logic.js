@@ -23,11 +23,12 @@ var myMap = L.map("map", {
       var magMarkers = [];
       
     //   var mag = features.properties.mag;
-      // Loop through locations and create city and state markers
-      for (var i = 0; i < geoData.length; i++) {
-        // Set the marker radius for the state by passing population into the markerSize function
+      // Loop through locations and create markers
+      for (var i = 0; i < data.length; i++) {
+        var geometry = data[i].geometry;
+        //  markerSize function
         magMarkers.push(
-          L.circle(geoData[i].coordinates[1],coordinates[0], {
+          L.circle(data[i].coordinates[1],coordinates[0], {
             stroke: false,
             fillOpacity: 0.75,
             color: "orange",
@@ -36,5 +37,6 @@ var myMap = L.map("map", {
           }).addTo(myMap)
         )}
 
-        L.geoData(data).addTo(myMap);
+          
   });
+  
